@@ -1,0 +1,65 @@
+:root {
+  --bg: #edefe9;
+  --bg-alt: #e2e5dc;
+  --panel: #f5f6f1;
+  --ink: #12201b;
+  --ink-soft: #4b564f;
+  --ink-faint: #7a8279;
+  --accent: #12746a;
+  --accent-soft: #d7e6e2;
+  --warm: #c97a2b;
+  --line: rgba(18, 32, 27, 0.14);
+  --line-strong: rgba(18, 32, 27, 0.28);
+
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-sans: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--panel);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
