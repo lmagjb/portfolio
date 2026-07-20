@@ -242,21 +242,21 @@ function Contact() {
         </a>
         <a
           className="contact-row"
-          href="https://github.com/yourusername"
+          href="https://github.com/lmagjb"
           target="_blank"
           rel="noreferrer"
         >
           <span>github</span>
-          <span>github.com/yourusername</span>
+          <span>github.com/lmagjb</span>
         </a>
         <a
           className="contact-row"
-          href="https://linkedin.com/in/yourusername"
+          href="https://github.com/lmagjb"
           target="_blank"
           rel="noreferrer"
         >
-          <span>linkedin</span>
-          <span>linkedin.com/in/yourusername</span>
+          <span>github</span>
+          <span>github.com/lmagjb</span>
         </a>
       </div>
       <p className="contact-note">
