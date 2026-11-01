@@ -17,7 +17,7 @@
   /* ---------- Basic text ---------- */
   $("#name").textContent = R.name || "";
   $("#title").textContent = R.title || "";
-  $("#nav-handle").textContent = R.handle || "me";
+  $("#nav-handle").textContent = R.name || "me";
   $("#summary").textContent = R.summary || "";
   $("#footer-name").textContent = R.name || "";
   $("#year").textContent = new Date().getFullYear();
@@ -52,7 +52,7 @@
   /* ---------- Skills ---------- */
   $("#skills-grid").innerHTML = (R.skills || []).map((g) => `
     <div class="skill-group reveal">
-      <h3>&gt; ${esc(g.group)}</h3>
+      <h3>${esc(g.group)}</h3>
       ${g.items.every((s) => s.level == null)
         ? `<div class="tags">${g.items.map((s) => `<span class="tag">${esc(s.name)}</span>`).join("")}</div>`
         : g.items.map((s) => `
@@ -130,7 +130,7 @@
 
   function renderCerts() {
     const list = activeCat === "All" ? CERTS : CERTS.filter((c) => c.category === activeCat);
-    $("#cert-count").innerHTML = `$ git ls-files <a href="${esc(repoUrl)}" target="_blank" rel="noopener">${esc(src.owner)}/${esc(src.repo)}</a> | wc -l  →  ${CERTS.length} total`;
+    $("#cert-count").innerHTML = `${CERTS.length} certificates, loaded from <a href="${esc(repoUrl)}" target="_blank" rel="noopener">my GitHub</a>`;
     $("#cert-grid").innerHTML = list.map((c) => `
         <button class="cert reveal visible" data-index="${CERTS.indexOf(c)}">
           <div class="cert-thumb"><span class="pdf loading">loading…</span><span class="cert-cat">${esc(c.category || "")}</span></div>
@@ -187,7 +187,7 @@
   modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
-  $("#cert-count").textContent = `$ fetching certificates from GitHub…`;
+  $("#cert-count").textContent = `Loading certificates…`;
   certsLoaded.then((list) => {
     CERTS = list;
     categories = ["All", ...new Set(CERTS.map((c) => c.category).filter(Boolean))];
@@ -195,7 +195,7 @@
     renderCerts();
     const issuers = new Set(CERTS.map((c) => String(c.issuer || "").replace(/\s*\(.*\)$/, "")).filter(Boolean));
     renderStats({ certs: CERTS.length, issuers: issuers.size });
-    if (!CERTS.length) $("#cert-count").textContent = "$ couldn't reach GitHub right now. Try refreshing.";
+    if (!CERTS.length) $("#cert-count").textContent = "Couldn't load certificates right now. Try refreshing the page.";
   });
 
   /* ---------- Contact ---------- */
