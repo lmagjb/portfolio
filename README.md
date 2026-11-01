@@ -46,16 +46,32 @@ Keep the `certificates` repo **public**, because visitors' browsers read from it
 - **Photo:** save a square photo as `assets/photo.jpg`. It appears above your name once the file is there.
 - **Colors:** the variables at the top of `assets/style.css`.
 
+## Pages
+| Page | What's on it |
+|---|---|
+| `index.html` | Home: short intro, key numbers, core tech, 3 featured projects, 3 latest certificates |
+| `about.html` | Summary, all skills, research, education |
+| `projects.html` | Every project, with filters by type |
+| `project.html?id=...` | One page per project (overview, what I built, role, tech, links) |
+| `certificates.html` | All certificates, live from GitHub, with filters and a viewer |
+| `contact.html` | Email, GitHub, location, resume download |
+
 ## Folder layout
 ```
-index.html                     page structure
+*.html                         the six pages
 assets/style.css               look and feel
-assets/main.js                 builds the page
+assets/site.js                 header, footer and the content of every page
 assets/certificates-live.js    reads certificates from GitHub
 assets/vendor/                 pdf.js (draws PDF previews in the browser)
-data/resume.js                 your resume text + certificate repo settings
+data/resume.js                 ALL your text: profile, skills, projects, research, education
 data/certificate-details.js    optional extra details per certificate
 ```
+
+## Adding a project
+Add an entry to `projects` in `data/resume.js` with a unique `id`. It gets its own page automatically.
+Set `featured: true` to show it on the home page (the first three featured ones are shown).
+Add `links` for a live site or public code, for example
+`links: [{ label: "Visit live site", url: "https://..." }]`.
 
 ## Limits worth knowing
 - GitHub allows each visitor 60 repo listings per hour without a key. The site saves the list for 5 minutes, so normal visitors never reach that. If it ever fails, the page falls back to the last list it saw.

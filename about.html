@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | John Benedict R. De Chavez</title>
+  <meta name="description" content="About John Benedict R. De Chavez: skills, research and education.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="about">
+  <canvas id="matrix" aria-hidden="true"></canvas>
+  <div id="site-header"></div>
+  <main>
+    <section class="page-head about-head">
+      <img class="avatar" id="avatar" alt="" hidden>
+      <div>
+        <h1>About me</h1>
+        <p class="lead" id="about-summary"></p>
+        <dl class="facts" id="about-facts"></dl>
+        <div class="btn-row" id="about-actions"></div>
+      </div>
+    </section>
+    <section class="section">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid" id="skills-grid"></div>
+    </section>
+    <section class="section">
+      <h2 class="section-title">Research</h2>
+      <div class="timeline" id="timeline"></div>
+    </section>
+    <section class="section">
+      <h2 class="section-title">Education</h2>
+      <div id="education"></div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+
+  <script src="data/resume.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>

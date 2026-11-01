@@ -9,6 +9,13 @@ window.RESUME = {
   handle: "jbdechavez",                     // used in the terminal prompt
   title: "IT Student | Web & Mobile Developer",
   location: "Lucena City, Philippines",
+  languages: "Filipino (native), English (fluent)",
+
+  // One or two sentences for the top of the home page
+  pitch: "I build web and mobile apps that solve real problems, like a DepEd promotion scoring system that matched official results on real teacher applications.",
+
+  // The short list of tools shown on the home page (full list is on the About page)
+  coreTech: ["Next.js", "React", "TypeScript", "Node.js", "MySQL", "SwiftUI", "Jetpack Compose", "React Native", "Firebase", "Laravel"],
   email: "lmagjb123@gmail.com",
   phone: "",                                // left off the public site on purpose; add it if you want it shown
   photo: "assets/photo.jpg",                // save your photo here; it's hidden until the file exists
@@ -79,76 +86,166 @@ window.RESUME = {
     }
   ],
 
-  // Projects, most important first. Read from github.com/lmagjb repos on 2026-11-01.
-  // featured: true highlights a card. links: live demo / public code (private repos have no code link).
+  // Projects, most important first. Each one gets its own page: project.html?id=<id>
+  // type: used for the filter on the Projects page.
+  // links: live demo and/or public code. Private repos get no code link (visitors would see a 404).
   projects: [
     {
-      name: "HAKBANG (formerly EvalPro)",
-      featured: true,
+      id: "hakbang",
+      name: "HAKBANG",
+      subtitle: "Teacher promotion scoring system for DepEd (formerly EvalPro)",
+      type: "Web & Mobile",
       year: "2026",
-      description: "Teacher promotion scoring system built on DepEd Order No. 024, s. 2025. It takes a reclassification application through an eight-stage approval workflow (principal, AO II, PSDS, HR, Secretariat, SDS) and scores it out of 100 using the Order's rubrics. Checked against seven real Form 2-A submissions: all 14 Education/Training/Experience values and all 11 COI/NCOI values matched. Has a web app and a mobile app that share one API.",
-      tags: ["Next.js", "TypeScript", "MySQL", "NextAuth", "Tailwind", "Expo / React Native", "Tesseract OCR"],
-      links: [{ label: "Live site", url: "https://evalpro2.vercel.app" }],
-      note: "Earlier versions: a Figma prototype and the first Next.js build made with team 6bitLite."
+      featured: true,
+      role: "Full-stack developer",
+      summary: "Scores teacher promotion applications out of 100 under DepEd Order No. 024, s. 2025, and runs the full eight-stage approval workflow.",
+      description: "Teachers applying for reclassification go through classroom observation, portfolio assessment, board deliberation and final approval, and each step used to be tracked on paper and spreadsheets. HAKBANG puts the whole process in one system. It follows the Order's own rubrics to compute each applicant's Comparative Assessment Result, so no one types points by hand.",
+      highlights: [
+        "Eight-stage workflow with a role for each office: teacher, principal, AO II, PSDS, HR, Division Secretariat and SDS.",
+        "Computes Education, Training, Experience, Performance, COI and NCOI scores to three decimal places, with rules that change by position applied for.",
+        "Checked against seven real Form 2-A submissions from Lucena East III Elementary School: all 14 Education/Training/Experience values and all 11 COI/NCOI values matched.",
+        "Reads uploaded documents with OCR (Tesseract) and generates a gap analysis for each teacher, with an optional AI-written summary in English or Filipino.",
+        "Web app (Next.js) and mobile app (Expo / React Native) share one API; MySQL database on AWS RDS with versioned migrations."
+      ],
+      tags: ["Next.js", "TypeScript", "React", "MySQL", "NextAuth", "Tailwind CSS", "Expo / React Native", "Tesseract OCR", "AWS RDS"],
+      links: [{ label: "Visit live site", url: "https://hakbang-deped.vercel.app" }],
+      note: "Earlier versions: a clickable Figma prototype, then a first Next.js build with team 6bitLite."
     },
     {
+      id: "shelflife",
       name: "ShelfLife",
-      featured: true,
+      subtitle: "iOS app for expiry dates, return windows and warranties",
+      type: "Mobile",
       year: "2026",
-      description: "iOS app that tracks food expiry dates, return windows and warranties in one place. Items go to a Pantry or Purchases shelf, an \"Expiring Soon\" feed shows what needs attention, and it suggests recipes that use food about to expire. Sign-in and data sync use Firebase.",
-      tags: ["Swift", "SwiftUI", "Firebase Auth", "Firestore"],
-      links: [{ label: "Code", url: "https://github.com/lmagjb/ShelfLife" }],
-      note: "Started as a clickable HTML prototype with seven screens, including a scan-to-add flow."
+      featured: true,
+      role: "Designer and iOS developer",
+      summary: "Tracks food expiry, return windows and warranties in one feed, and suggests recipes for food that's about to expire.",
+      description: "Food goes bad and warranties lapse because the dates live in different places. ShelfLife keeps them together: everything you add lands on a Pantry or Purchases shelf, and one \"Expiring Soon\" feed shows what needs attention first.",
+      highlights: [
+        "Pantry and Purchases shelves with search, plus a unified \"Expiring Soon\" feed.",
+        "Recipe suggestions that use the food closest to expiring.",
+        "Insights screen and item detail pages for food and purchases.",
+        "Sign-in with Firebase Authentication; items sync to Cloud Firestore.",
+        "Designed first as a seven-screen clickable HTML prototype, including a scan-to-add flow, then built in SwiftUI."
+      ],
+      tags: ["Swift", "SwiftUI", "Firebase Auth", "Cloud Firestore", "Combine"],
+      links: [{ label: "View code on GitHub", url: "https://github.com/lmagjb/ShelfLife" }]
     },
     {
+      id: "agritrend",
       name: "AGRITrend",
-      featured: true,
+      subtitle: "Marketplace for farmers and vendors in Quezon Province",
+      type: "Research",
       year: "2026",
-      description: "Marketplace for farmers and vendors in Quezon Province and the subject of my HCI research paper. I built a 12-screen web prototype (farmer dashboard, harvest listings, price explorer, buyer requests, chat, sales history) and an Android admin app for managing products, prices and activity logs.",
-      tags: ["HTML", "CSS", "JavaScript", "Kotlin", "Jetpack Compose", "Firebase Firestore"],
-      links: [{ label: "Prototype code", url: "https://github.com/lmagjb/HTML" }]
+      featured: true,
+      role: "UX researcher and developer (HCI paper co-author)",
+      summary: "A farmer-to-vendor marketplace I researched, prototyped and tested with real users for my HCI paper.",
+      description: "AGRITrend connects farmers in Quezon Province with vendors who buy their harvest. I co-authored the HCI research paper behind it, using Design Thinking, and built both a web prototype and an Android admin app.",
+      highlights: [
+        "Ran 8 user interviews and measured usability with the System Usability Scale (SUS).",
+        "Built a 12-screen web prototype: farmer dashboard, harvest listings, price explorer, buyer requests, chat, sales history and more.",
+        "Built an Android admin app in Kotlin and Jetpack Compose for managing products, prices and an activity log.",
+        "Wrote a Node.js script to bulk-import product data into Firebase Firestore."
+      ],
+      tags: ["Design Thinking", "Usability testing", "HTML", "CSS", "JavaScript", "Kotlin", "Jetpack Compose", "Firebase Firestore"],
+      links: [{ label: "View prototype code", url: "https://github.com/lmagjb/HTML" }]
     },
     {
+      id: "cropmart",
       name: "CropMart",
+      subtitle: "Android marketplace app",
+      type: "Mobile",
       year: "",
-      description: "The Android marketplace app that later became AGRITrend. Redesigned the UI from a Figma mockup and split the code into files by feature.",
+      role: "Android developer",
+      summary: "The Android marketplace app that later became AGRITrend.",
+      description: "CropMart was the first version of the farmer marketplace that grew into AGRITrend.",
+      highlights: [
+        "Redesigned the UI from a Figma mockup.",
+        "Split the code into files by feature to make it easier to work on."
+      ],
       tags: ["Kotlin", "Jetpack Compose", "Figma"],
       links: []
     },
     {
+      id: "freelancerhub",
       name: "FreelancerHub",
+      subtitle: "Full-stack web app",
+      type: "Web",
       year: "",
-      description: "Full-stack web app: a five-page React front end with sign-up and login, connected to an Express and MongoDB back end.",
+      role: "Full-stack developer",
+      summary: "A five-page React app with sign-up and login, backed by Express and MongoDB.",
+      description: "FreelancerHub is a full-stack MERN project: a React front end that talks to an Express API with a MongoDB database.",
+      highlights: [
+        "Five-page React front end with sign-up and login.",
+        "Express and MongoDB back end handling accounts and data."
+      ],
       tags: ["React", "Node.js", "Express", "MongoDB"],
       links: []
     },
     {
+      id: "hotel-billing",
       name: "Hotel Room Billing App",
+      subtitle: "React app with a hand-built build setup",
+      type: "Web",
       year: "",
-      description: "React app with a custom Webpack and Babel build set up from scratch to meet the course's required folder structure.",
+      role: "Front-end developer",
+      summary: "A React billing app with a custom Webpack and Babel build set up from scratch.",
+      description: "The course required a specific folder structure, so instead of a starter template I set up the Webpack and Babel build myself.",
+      highlights: [
+        "Configured Webpack and Babel from scratch.",
+        "Matched the course's required folder structure."
+      ],
       tags: ["React", "Webpack", "Babel"],
       links: []
     },
     {
+      id: "web-coursework",
       name: "Web Development coursework",
+      subtitle: "Class projects in HTML, CSS and Bootstrap",
+      type: "Coursework",
       year: "2025",
-      description: "Projects from my web development class: a Cookie Run: Kingdom fan wiki with over 100 linked pages, NovaLaptops (a Bootstrap laptop store with product, login and about pages), a tax calculator, and my first portfolio site.",
+      role: "Student",
+      summary: "A 100+ page fan wiki, a Bootstrap laptop store, a tax calculator and my first portfolio.",
+      description: "Work from my web development class, from my first web page to multi-page sites.",
+      highlights: [
+        "Cookie Run: Kingdom fan wiki with over 100 linked pages for characters, skills, builds and stories.",
+        "NovaLaptops, a Bootstrap store with home, product, login, about and privacy pages.",
+        "A tax calculator in JavaScript and my first portfolio site."
+      ],
       tags: ["HTML", "CSS", "Bootstrap", "JavaScript"],
       links: []
     },
     {
+      id: "swiftui-practice",
       name: "SwiftUI practice apps",
+      subtitle: "Small iOS apps written while learning SwiftUI",
+      type: "Coursework",
       year: "2026",
-      description: "A set of small iOS apps written while learning SwiftUI, from Hello World and a greeting app to a portfolio screen and the first version of ShelfLife.",
+      role: "Student",
+      summary: "From Hello World to the first version of ShelfLife.",
+      description: "A set of small apps I built while learning Swift and SwiftUI in Xcode.",
+      highlights: [
+        "Hello World, greeting and activity apps to learn layout and state.",
+        "A portfolio screen and the first version of ShelfLife's onboarding."
+      ],
       tags: ["Swift", "SwiftUI", "Xcode"],
       links: []
     },
     {
+      id: "cpp-dsa",
       name: "Data Structures in C++",
+      subtitle: "Exercises from my data structures class",
+      type: "Coursework",
       year: "2024",
-      description: "C++ exercises for my data structures class, including a CRUD program that manages a ranked anime list with vectors and sorting, and a calculator.",
+      role: "Student",
+      summary: "A CRUD program for a ranked anime list, a calculator and an order-processing exercise.",
+      description: "C++ exercises written for my data structures and algorithms class.",
+      highlights: [
+        "CRUD program that stores a ranked anime list in vectors and sorts it.",
+        "Calculator and an order-processing exercise."
+      ],
       tags: ["C++", "Vectors", "Sorting", "CRUD"],
-      links: [{ label: "Code", url: "https://github.com/lmagjb/Data-Structure-and-Algorithm" }]
+      links: [{ label: "View code on GitHub", url: "https://github.com/lmagjb/Data-Structure-and-Algorithm" }]
     }
   ],
 

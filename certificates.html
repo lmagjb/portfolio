@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Certificates | John Benedict R. De Chavez</title>
+  <meta name="description" content="Certificates earned by John Benedict R. De Chavez.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="certificates">
+  <canvas id="matrix" aria-hidden="true"></canvas>
+  <div id="site-header"></div>
+  <main>
+    <section class="page-head">
+      <h1>Certificates</h1>
+      <p class="lead" id="cert-count"></p>
+      <div class="filters" id="cert-filters"></div>
+    </section>
+    <section class="section flush">
+      <div class="cert-grid" id="cert-grid"></div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+  <script src="data/resume.js"></script>
+  <script src="data/certificate-details.js"></script>
+  <script src="assets/certificates-live.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>
