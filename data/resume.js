@@ -40,11 +40,16 @@ window.RESUME = {
     "cat summary.txt",
   ],
 
+  // About page text. Each string is one paragraph.
+  about: [
+    "I'm a full-stack web and mobile developer studying BS Information Technology at Manuel S. Enverga University Foundation. I like taking a project from the first conversation with users to a working app: planning the database and API, building the web and mobile screens, and testing them with the people who will use them.",
+    "My biggest project is HAKBANG, a promotion scoring system for DepEd teachers built with Next.js, TypeScript and MySQL. Its scores matched the official results on seven real teacher applications. I've also built ShelfLife, an iOS app in SwiftUI and Firebase, and co-authored an HCI research paper on AGRITrend, a marketplace for farmers and vendors in Quezon Province.",
+    "I hold certifications from Meta, IBM, Google, Packt and Cisco, and I'm open to roles where I can build real products with a team and keep growing as a developer."
+  ],
+
+  // Short version, used where only a line or two fits
   summary:
-    "IT student who builds web and mobile apps with Next.js, React, SwiftUI, Jetpack Compose, and React Native. " +
-    "Built HAKBANG, a teacher promotion scoring system for DepEd, and ShelfLife, an iOS expiry and warranty tracker. " +
-    "Co-authored an HCI research paper on AGRITrend, a marketplace app for farmers and vendors in Quezon Province, " +
-    "covering user interviews, prototyping, and usability testing.",
+    "A full-stack web and mobile developer and BS Information Technology student who builds complete apps with Next.js, React, Node.js, SwiftUI and Jetpack Compose.",
 
   stats: [
     { value: "{certs}", label: "Certificates" },

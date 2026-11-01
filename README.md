@@ -49,8 +49,8 @@ Keep the `certificates` repo **public**, because visitors' browsers read from it
 ## Pages
 | Page | What's on it |
 |---|---|
-| `index.html` | Home: short intro, key numbers, core tech, 3 featured projects, 3 latest certificates |
-| `about.html` | Summary, all skills, research, education |
+| `index.html` | Home: short intro, core tech, 3 featured projects, 3 latest certificates |
+| `about.html` | About text (paragraphs in `about`), all skills, research, education |
 | `projects.html` | Every project, with filters by type |
 | `project.html?id=...` | One page per project (overview, what I built, role, tech, links) |
 | `certificates.html` | All certificates, live from GitHub, with filters and a viewer |

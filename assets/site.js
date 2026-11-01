@@ -197,7 +197,7 @@
   };
 
   pages.about = function () {
-    $("#about-summary").textContent = R.summary || "";
+    $("#about-summary").innerHTML = (R.about || [R.summary || ""]).map((t) => `<p class="lead">${esc(t)}</p>`).join("");
     const avatar = $("#avatar");
     if (R.photo) {
       avatar.onload = () => { avatar.hidden = false; };
