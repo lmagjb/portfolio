@@ -170,6 +170,7 @@
 
     // Stats
     const renderStats = (counts) => {
+      if (!$("#stats")) return;
       $("#stats").innerHTML = (R.stats || []).map((s) => {
         const v = String(s.value).replace(/\{(\w+)\}/g, (m, k) => counts[k] ?? "…");
         return `<div class="stat"><div class="stat-value">${esc(v)}</div><div class="stat-label">${esc(s.label)}</div></div>`;

@@ -12,7 +12,7 @@ window.RESUME = {
   languages: "Filipino (native), English (fluent)",
 
   // One or two sentences for the top of the home page
-  pitch: "I build web and mobile apps that solve real problems, like a DepEd promotion scoring system that matched official results on real teacher applications.",
+  pitch: "A full-stack web and mobile developer and BS Information Technology student. I build complete applications, from the database and API to the web and mobile screens, using Next.js, React, Node.js, SwiftUI and Jetpack Compose. I also run user research and usability tests, and I hold certifications from Meta, IBM, Google and Cisco.",
 
   // The short list of tools shown on the home page (full list is on the About page)
   coreTech: ["Next.js", "React", "TypeScript", "Node.js", "MySQL", "SwiftUI", "Jetpack Compose", "React Native", "Firebase", "Laravel"],
