@@ -47,7 +47,7 @@
       return `<div class="stat reveal visible"><div class="stat-value">${esc(v)}</div><div class="stat-label">${esc(s.label)}</div></div>`;
     }).join("");
   };
-  renderStats(null);
+  renderStats({ projects: (R.projects || []).length });
 
   /* ---------- Skills ---------- */
   $("#skills-grid").innerHTML = (R.skills || []).map((g) => `
@@ -76,13 +76,19 @@
   ).join("");
 
   /* ---------- Projects ---------- */
-  $("#project-cards").innerHTML = (R.projects || []).map((p) => `
-    <article class="card reveal">
+  $("#project-cards").innerHTML = (R.projects || []).map((p) => {
+    const links = (p.links || (p.link ? [{ label: "View", url: p.link }] : []))
+      .map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`).join("");
+    return `
+    <article class="card reveal${p.featured ? " featured" : ""}">
+      <div class="card-top">${p.featured ? `<span class="badge">Featured</span>` : ""}${p.year ? `<span class="muted card-year">${esc(p.year)}</span>` : ""}</div>
       <h3>${esc(p.name)}</h3>
       <p>${esc(p.description)}</p>
-      ${p.link ? `<a class="mono" href="${esc(p.link)}" target="_blank" rel="noopener">view →</a>` : ""}
+      ${p.note ? `<p class="card-note">${esc(p.note)}</p>` : ""}
       <div class="tags">${(p.tags || []).map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>
-    </article>`).join("");
+      ${links ? `<div class="card-links">${links}</div>` : ""}
+    </article>`;
+  }).join("");
 
   /* ---------- Certificates (live from GitHub) ---------- */
   const skillTags = (c, max) => {
@@ -194,7 +200,7 @@
     renderFilters();
     renderCerts();
     const issuers = new Set(CERTS.map((c) => String(c.issuer || "").replace(/\s*\(.*\)$/, "")).filter(Boolean));
-    renderStats({ certs: CERTS.length, issuers: issuers.size });
+    renderStats({ certs: CERTS.length, issuers: issuers.size, projects: (R.projects || []).length });
     if (!CERTS.length) $("#cert-count").textContent = "Couldn't load certificates right now. Try refreshing the page.";
   });
 

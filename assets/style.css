@@ -227,3 +227,13 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 .modal-media { min-height: 200px; display: flex; align-items: center; justify-content: center; }
 .modal-media .pdf { font-family: var(--mono); color: var(--accent); }
 .cert-thumb .loading { font-size: 14px; animation: blink 1.2s steps(1) infinite; }
+
+/* Project cards */
+.cards .card.featured { grid-column: span 3; border-color: rgba(57,217,138,.45); }
+.card-top { display: flex; justify-content: space-between; align-items: center; min-height: 20px; margin-bottom: 6px; }
+.badge { font-size: 12px; font-weight: 600; color: #04130b; background: var(--accent); padding: 2px 10px; border-radius: 20px; }
+.card-year { font-size: 13px; margin-left: auto; }
+.card-note { font-size: 14px !important; color: var(--muted) !important; flex: 0 !important; margin-top: 0; }
+.card-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px; font-size: 14px; font-weight: 500; }
+@media (max-width: 900px) { .cards .card.featured { grid-column: span 2; } }
+@media (max-width: 640px) { .cards .card.featured { grid-column: auto; } }
